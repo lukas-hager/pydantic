@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+from . import utils as ut
+
 class LinearRegression:
     def __init__(self, name):
         self.name = name
@@ -19,9 +21,7 @@ class LinearRegression:
     def summary(self) -> pd.DataFrame:
         """Produce a regression table"""
         ses = np.sqrt(np.diag(self.cov))
-        data = {
-            'coef': self.beta.flatten(),
-            'se': ses,
-            't-stat': self.beta.flatten() / ses
-        }
-        return pd.DataFrame(data)
+
+        return ut.summary(
+            beta = self.beta, se = ses, t_stat= self.beta.flatten() / ses
+        )

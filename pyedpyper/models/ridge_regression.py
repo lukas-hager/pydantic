@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+from . import utils as ut
+
 class RidgeRegression:
     def __init__(self, name):
         self.name = name
@@ -20,7 +22,5 @@ class RidgeRegression:
         self.beta = denom @ num
     def summary(self) -> pd.DataFrame:
         """Produce a regression table"""
-        data = {
-            'coef': self.beta.flatten()
-        }
-        return pd.DataFrame(data)
+        
+        return ut.summary(beta = self.beta)
