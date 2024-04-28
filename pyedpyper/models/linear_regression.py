@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-from . import utils as ut
+from .. import utils as ut
 
 class LinearRegression:
     def __init__(self, name):
