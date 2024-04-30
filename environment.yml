@@ -2,3 +2,5 @@ name: pyedpyper
 dependencies:
   - numpy
   - pandas
+  - pre-commit
+  - pylint
